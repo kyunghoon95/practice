@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<title>progress bar</title>
+
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/contents.css">
+
+	
+</head>
+<body>
+	<div class="progress-box-wrap">
+		<button type="button" class="btn_on" onclick="barClick()">실행버튼</button>
+		<button type="button" class="btn_reset" onclick="barReset()">초기화</button>
+		<ul class="progress-box-in-wrap fs0 mgt20">
+			<li class="progress-box">
+				<div class="progress-w" style="--bar-width:78%;"><!-- --bar-width 를 사용하여 css에서 변수처럼 불러와 할당된 값만큼 사용 -->
+					<div class="progress-in-w">
+						<div class="active-bar bg-02c498"></div>
+					</div>
+				</div>
+			</li>
+			<li class="progress-box mgt30">
+				<div class="progress-w" style="--bar-width:50%;">
+					<div class="progress-in-w">
+						<div class="active-bar bg-02c498"></div>
+					</div>
+				</div>
+			</li>
+			<li class="progress-box mgt30">
+				<div class="progress-w" style="--bar-width:30%;">
+					<div class="progress-in-w">
+						<div class="active-bar bg-02c498"></div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<style>
+		.fs0 {font-size:0;}
+		.mgt10 {margin-top:10px;}
+		.mgt20 {margin-top:20px;}
+		.mgt30 {margin-top:30px;}
+
+		.pdb100 {padding-bottom:500px;}
+		.btn_test {width:100px; padding:10px; font-size:16px; border:none;}
+		.progress-box-wrap {position:relative;}
+		.progress-box-wrap .vertical-bar {position:absolute; top:0;	left:156px;	width:1px; height:100%; background-color:#e3e3e3}
+		.progress-box-wrap .vertical-bar:before {content:""; position:absolute; top:-5px; left:-2px; padding:0; width:0; height:0; border-top:5px solid #e3e3e3; border-left:3px solid transparent; border-right:3px solid transparent; background-color:transparent; transform:rotate(180deg);}
+		.progress-box-wrap .vertical-bar:after {content:""; position:absolute; bottom:-5px; left:-2px; padding:0; width:0; height:0; border-top:5px solid #e3e3e3; border-left:3px solid transparent; border-right:3px solid transparent; background-color:transparent;}
+		.progress-w {position:relative; display:inline-block; width:calc(100% - 206px); --bar-width:0; vertical-align:middle; }
+		.progress-w .progress-in-w {overflow:hidden; position:relative; width:100%; padding:6px 0; background-color:#eee; border-radius:0 8px 8px 0;}
+		.progress-w .progress-in-w .active-bar {position:absolute; bottom:0; width:0; padding:6px 0; transition:0.8s;}
+		.progress-box-wrap.active .active-bar {width:var(--bar-width);}
+		.container-24 {padding:0 24px;}
+		.bg-02c498 {background: #02c498;}
+	</style>
+	</div>
+</body>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+	var growthBarWraps = document.querySelectorAll('.progress-box-wrap');
+	function barClick(){
+		growthBarWraps.forEach(function(el){
+			/*var wrapWidth = el.offsetWidth;
+			var barVal = getComputedStyle(el).getPropertyValue('--bar-width');
+			barVal = barVal.replace('%', '');
+			var barWidth = wrapWidth * (barVal / 100);*/
+			el.classList.add('active');
+		})
+	}
+
+	function barReset(){
+		growthBarWraps.forEach(function(el){
+			el.classList.remove('active');
+		}) 
+	}
+</script>
+</html>
