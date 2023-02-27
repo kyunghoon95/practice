@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<title>flip</title>
+
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/flip.min.css">
+
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/flip.min.js"></script>
+
+</head>
+<body>
+<div class="wrap">
+	<div class="tick" id="flip_w" data-value="1">
+		<div data-layout="horizontal center" data-repeat="false" data-transform="tween(4s, ease-in-out-cubic) -> round -> split('-')">
+			<span data-view="flip"></span>
+		</div>
+	</div>
+	<div class="btn_w">
+		<button type="button" class="btn" onclick="start()">실행</button>
+		<button type="button" class="btn" onclick="reverse()">거꾸로실행</button>
+	</div>
+</div>
+<style>
+	.tick-flip {width:150px;height:120px; font-size:80px; border-radius:22px}
+	.tick-flip-panel-text-wrapper {color:#f00}
+	.btn_w {margin-top:20px;}
+</style>
+</body>
+<script>
+	var _flip = $('#flip_w')
+
+
+	function start(){
+		_flip.attr('data-value', 50);
+	}
+	function reverse(){
+		_flip.attr('data-value', 1);
+	}
+</script>
+</html>
