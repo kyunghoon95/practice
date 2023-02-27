@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+.body_fixed {position:fixed; overflow:hidden; width:100%; height:100%;}
+.pop_fixed_wrap {display:none; position:fixed; top:0; right:0; bottom:0; left:0; }
+.pop_fixed_wrap .dim {display:block;}
+.pop_wrap {position:relative; z-index:20; margin:0 2.4rem; transition:all .3s; z-index: 1000;}
+.pop_wrap.full_bttm_pop {opacity:0.8; position:fixed; right:0; bottom:0; left:0; z-index: 1000; margin:0; background:#fff; box-shadow:none; transition:0.5s; transform:translateY(100%);}
+/*.on .pop_wrap.full_bttm_pop {transform:translateY(0); opacity:1; transition:0.4s;}*/
+/*.btn_pop_close {position:absolute; top:-54px; right:5px; z-index:1000; margin:0; padding: 0; width:52px; height:52px; background-color:transparent; border:0px; outline:0; text-indent:-9999px;}
+.btn_pop_close.small {top:0px;}
+.btn_pop_close::before {content: ""; position:absolute; top:50%; left:15px; margin: -1px 0 0; width:24px;height:2px; border-radius:1px; transform:rotate(45deg); background-color:#f00;}
+.btn_pop_close::after {content: ""; position:absolute; top:50%; left:15px; margin: -1px 0 0; width:24px;height:2px; border-radius:1px; transform:rotate(-45deg); background-color:#f00;}
+.btn_pop_close.small::before {left:19px; width:14px;}
+.btn_pop_close.small::after {left:19px; width:14px;}*/
+
+
+.btn_pop_close {position:absolute; top:50%; left:24px; z-index:1000; margin:0; padding: 0; width:22px; height:22px; background-color:transparent; border:0px; outline:0; text-indent:-9999px; }
+.btn_pop_close::before {content: ""; position:absolute; top:0; left:0;  width:22px; height:2px; border-radius:1px; transform:rotate(45deg); background-color:#000;}
+.btn_pop_close::after {content: ""; position:absolute; top:0; left:0;  width:22px; height:2px; border-radius:1px; transform:rotate(-45deg); background-color:#000;}
+
+.pop_body {overflow: auto; max-height: calc( 100vh - 100px);}
+.full_pop .pop_body {overflow-y:auto; position:absolute; top:56px; right:0; background-color: #fff;}
+.container01 {padding: 0 24px;}
+.pop_tit01 {display:block; height: 56px; padding: 22px 60px 20px; line-height: 1; font-size: 14px; font-weight: 400; color: #333; text-align: center; box-sizing: border-box;}
+/*.pop_wrap .full_pop .btn_pop_close{top: 2rem;}*/
+.viewMore {display: block; text-align: right;}
+.btn01 {display:block; padding:20px 10px; border-radius:0.4rem; text-align:center; box-sizing:border-box;}
+.popup_in {display: none;}
+
+.dim {display: none; position:fixed; top:0; left:0; z-index:110; width:100%; height:100%; background-color:rgba(0,0,0,.6)}
+.bg_green01 {background-color: #00b2a6;}
+.bg_gray {background-color: #f9f9fb;}
+
+.txt_white {color:#fff;}
+.txt_c {text-align:center;}
+
+.m_t20 {margin-top:20px;}
+.m_t40 {margin-top:40px;}
+
+.p_t30 {padding-top:30px;}
+.p_t40 {padding-top:40px;}
+.p_l16 {padding-left:16px;}
+.p_b20 {padding-bottom:50px}
+
+.main_txt {padding:0 150px 0 24px; min-height:130px}
+	.ballon01 {display:flex; flex-direction:row-reverse; width:100%;}
+	.ballon01.right {padding-right:12px;}
+	.ballon01 .box01 {padding:12px 70px 12px 24px;}
+	.ballon01 .circle {position:absolute; top:50%; right:20px; width:36px; height:32px; transform:translateY(-50%);}
+
+	.txt_box_w .txt_box01 {position:relative;}
+	.txt_box_w {position:relative;}
+	.txt_box_w::before {content:""; position:absolute; top:-95px; left:0; width:110px; height:110px; background:url('img/img_deco02.png') no-repeat center; background-size:100%}
+	.txt_box_w::after {content:""; position:absolute; top:-10px; left:75px; width:34px; height:24px; background:url('img/img_deco03.png') no-repeat center; background-size:100%;}
+
+	.compass_w .conts01, .compass_w .conts06 {transform:translateX(100%);}
+	.compass_w .conts01, .compass_w .conts02, .compass_w .conts03, .compass_w .conts04, .compass_w .conts05, .compass_w .conts06 {width:100%; opacity:0; transition:.5s}
+	.compass_w.on .conts01, .compass_w.on .conts02, .compass_w.on .conts03, .compass_w.on .conts04, .compass_w.on .conts05, .compass_w.on .conts06 {opacity:1;}
+	.compass_w.on .conts01 {transition-delay:1s; transform:translateX(0%);}
+	.compass_w.on .conts02 {transition-delay:2s}
+	.compass_w.on .conts03 {transition-delay:3s}
+	.compass_w.on .conts04 {transition-delay:4s}
+	.compass_w.on .conts05 {transition-delay:5s}
+	.compass_w.on .conts06 {transition-delay:6s; transform:translateX(0%);}
+	.position_r {position:relative;}
+
+	.txt_deco_w .txt_deco01 {position:absolute; top:0; left:0;}
+
+	.market_slide01 {overflow:visible;}
+	.market_slide01 .swiper-wrapper {width: 140px;}
+	.market_slide01 .swiper-wrapper .swiper-slide {padding:12px 12px 20px; border:1px solid #cccccc; border-radius:4px; background-color:#fff; box-shadow: 2px 6px 8px 0 rgba(174, 174, 174, 0.26); box-sizing:border-box;}
+	.swiper-slide .swiper_desc {word-break:break-all;}
+	.compass_bg {width:246px;}
+	.compass_needle {position:absolute; top:50%; left:50%; width:40px; margin-left:-20px; margin-top:-93px; transition:all .3s}
+	#bar_chart01 .highcharts-xaxis-labels text:last-child {fill: #ff5998 !important;}
+	#bar_chart01 .highcharts-xaxis .highcharts-axis-line {stroke-dasharray:4,3}
+/*	#column_chart01 .highcharts-yaxis-labels text:nth-child(2) {display:none;}
+	#column_chart01 .highcharts-yaxis-labels text:nth-child(3) {display:none;}*/
+	#bar_chart01 .highcharts-yaxis-labels text {transform:rotate(0);}
+
+	.compass_in_w.on .compass_needle {animation:spin 2s ease}
+	.compass_txt_w {position:absolute;}
+	.compass_txt01_w {top:10px; left:35px; width:95px; height:92px;}
+	.compass_txt02_w {top:10px; right:45px; width:74px; height:77px;}
+	.compass_txt03_w {bottom:10px; left:35px; width:83px; height:80px;}
+	.compass_txt04_w {bottom:10px; right:35px; width:91px; height:95px;}
+	.compass_num { width:40px; height:40px; line-height:40px; font-size:19px; font-weight:bold; border-radius:20px; text-align:center; color:#fff}
+	.compass_txt01_w .compass_num {position:absolute; bottom:10px; right:10px; background-color:#fa4b2a; box-shadow: 4px 12px 20px 0 rgba(6, 37, 36, 0.5), inset -1px -5px 8px 0 rgba(71, 0, 0, 0.48);}
+	.compass_txt02_w .compass_num {position:absolute; bottom:0; left:0; background-color:#76bb00; box-shadow: 4px 12px 20px 0 rgba(6, 37, 36, 0.5), inset -1px -5px 8px 0 #368e00;}
+	.compass_txt03_w .compass_num {position:absolute; top:0; right:0; background-color:#09b9ff; box-shadow: 4px 12px 20px 0 rgba(6, 37, 36, 0.5), inset -1px -5px 8px 0 #0078a8;}
+	.compass_txt04_w .compass_num {position:absolute; top:10px; left:10px; background-color:#fdb401; box-shadow: 4px 12px 20px 0 rgba(6, 37, 36, 0.5), inset -1px -5px 8px 0 #9d6100;}
+	.acco_w .ico_arrow_down03 {transition:all .3s}
+	.acco_w.on .ico_arrow_down03 {transform:rotate(180deg); transition:all .3s}
+
+	@keyframes spin {
+		0% {transform:rotate(0);}
+		75% {transform:rotate(1820deg);}
+		80%{transform:rotate(1790deg);}
+		85%{transform:rotate(1810deg);}
+		90%{transform:rotate(1780deg);}
+		95%{transform:rotate(1810deg);}
+		100% {transform:rotate(1800deg);}
+	}
+	@keyframes move01 {
+		0% {transform:rotate(0);}
+		75%{transform:rotate(-65deg);}
+		80%{transform:rotate(-35deg);}
+		85%{transform:rotate(-50deg);}
+		90%{transform:rotate(-35deg);}
+		95%{transform:rotate(-50deg);}
+		100% {transform:rotate(-45deg);}
+	}
+		@keyframes move02 {
+		0% {transform:rotate(0);}
+		75%{transform:rotate(65deg);}
+		80%{transform:rotate(35deg);}
+		85%{transform:rotate(50deg);}
+		90%{transform:rotate(35deg);}
+		95%{transform:rotate(50deg);}
+		100% {transform:rotate(45deg);}
+	}
+		@keyframes move03 {
+		0% {transform:rotate(0);}
+		75%{transform:rotate(-155deg);}
+		80%{transform:rotate(-130deg);}
+		85%{transform:rotate(-140deg);}
+		90%{transform:rotate(-130deg);}
+		95%{transform:rotate(-150deg);}
+		100% {transform:rotate(-135deg);}
+	}
+		@keyframes move04 {
+		0% {transform:rotate(0);}
+		75%{transform:rotate(155deg);}
+		80%{transform:rotate(130deg);}
+		85%{transform:rotate(140deg);}
+		90%{transform:rotate(130deg);}
+		95%{transform:rotate(150deg);}
+		100% {transform:rotate(135deg);}
+	}
+
+	/*.move01 .compass_needle {transform:rotate(-45deg);}*/
+	.move01 .compass_needle {animation:move01 .5s ease forwards;}
+	/*.move02 .compass_needle {transform:rotate(45deg);}*/
+	.move02 .compass_needle {animation:move02 .5s ease forwards;}
+	/*.move03 .compass_needle {transform:rotate(-135deg);}*/
+	.move03 .compass_needle {animation:move03 .5s ease forwards;}
+	/*.move04 .compass_needle {transform:rotate(135deg);}*/
+	.move04 .compass_needle {animation:move04 .5s ease forwards;}
