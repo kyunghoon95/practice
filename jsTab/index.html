@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<title>바닐라js연습</title>
+
+	<link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+	<div class="container-24 mgt20">
+		<div class="tab_type01">
+			<ul class="tab">
+				<li class="on mgr10">
+					<a href="javascript:void(0)">탭1</a>
+				</li>
+				<li class="mgr10">
+					<a href="javascript:void(0)">탭2</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">탭3</a>
+				</li>
+			</ul>
+			<div class="tab_conts first">
+				<p>내용1</p>
+			</div>
+			<div class="tab_conts">
+				<p>내용2</p>
+			</div>
+			<div class="tab_conts">
+				<p>내용3</p>
+			</div>
+		</div>
+	</div>
+	<style>
+		.fs0 {font-size:0;}
+		.mgt10 {margin-top:10px;}
+		.mgt20 {margin-top:20px;}
+		.mgt30 {margin-top:30px;}
+		.mgr10 {margin-right:10px;}
+		.container-24 {padding:0 24px;}
+		
+		.tab_type01 {width:100%; overflow:hidden;}
+		.tab_type01 .tab {display:flex; justify-content:center; align-items:center;}
+		.tab_type01 .tab li {width:100%;}
+/*		.tab_type01 .tab li {display:inline-block; width:33.333%; padding:0 3px; vertical-align:top; box-sizing:border-box;}*/
+		.tab_type01 .tab li a {display:block; font-size:16px; padding:20px 0; text-align:center; border:1px solid #f00;}
+		.tab_type01 .tab_conts {margin-top:20px; padding:20px 0; font-size:20px; text-align:center; border:1px solid #00f; box-sizing:border-box;}
+		.tab_type01 .tab li.on a {background-color:#ff0;}
+	</style>
+	</div>
+</body>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script>
+	$(function(){
+		tabAction();
+		swtich();
+	})
+
+	function swtich(){
+		var tabLi = document.querySelectorAll('.tab_type01 .tab li');
+		for(var i = 0; i<tabLi.length; i++){
+			tabLi[i].addEventListener('click', function(){
+				var _this = this;
+				var _thisIndex = Array.prototype.indexOf.call(tabLi, _this);
+				switch (_thisIndex){
+					case 0 : // 자산 구성
+						console.log('첫번째 index입니다.');
+						break;
+					case 1 : // 자산 추이
+						console.log('두번째 index입니다.');
+						break;
+					case 2 : // 투자자산 유형별 현황
+						console.log('세번째 index입니다.');
+						break;
+				}
+				return _thisIndex;
+			})
+		}
+	}
+
+
+
+	// function tabAction(tab, tabCont){
+	// 	var tabLi = $('.tab_type01 .tab li');
+
+	// 	$(tabCont).hide();
+	// 	$(tabCont + '.first').show();
+
+	// 	tabLi.on('click', function(){
+	// 		var _this = $(this);
+	// 		var _tabCont = _this.parents(tab).siblings(tabCont);
+	// 		var _thisIndex = _this.index();
+	// 		_this.siblings('li').removeClass('on');
+	// 		_this.addClass('on');
+
+	// 		_tabCont.hide();
+	// 		_tabCont.eq(_thisIndex).show();
+	// 	});
+	// }
+
+	function tabAction(){
+		var tab = document.querySelector('.tab_type01 .tab');
+		var tabLi = document.querySelectorAll('.tab_type01 .tab li');
+		var tabCont = document.querySelectorAll('.tab_type01 .tab_conts'); //각 탭의 내용
+		for(var i=0; i<tabCont.length; i++){
+			if(tabCont[i].classList.contains('first')){
+				tabCont[i].style.display = 'block';
+			} else {
+				tabCont[i].style.display = 'none';
+			}
+		}
+		for(var i =0; i<tabLi.length; i++){
+			tabLi[i].addEventListener('click', function(){
+				var _this = this;
+				var _thisIndex = Array.prototype.indexOf.call(tabLi, _this);/* 현재 인덱스를 불러옴 */
+
+				/* 이방법도 있음 이때 tabCont[_thisIndex] 에 []부분에 nowIndex 넣기
+				var _thisIndex = Array.from(tabLi);
+				var nowIndex = _thisIndex.indexOf(_this);*/
+
+				tabLi.forEach(function(el){
+					el.classList.remove('on')
+				})
+				_this.classList.add('on'); // 탭에 백그라운드 넣는 클래스
+
+				for(var j=0; j<tabCont.length; j++){
+					tabCont[j].style.display = 'none';
+				} /* 클릭시 전체 tab_conts 숨기기 */
+					
+				tabCont[_thisIndex].style.display = 'block';
+			})
+		}
+	}
+</script>
+</html>
